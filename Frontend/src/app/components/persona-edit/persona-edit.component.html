@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">LLISTAT DE VACUNES DE {{ name }}</span>
+          <button class="btn btn-success float-end mx-1" routerLink="/">
+            ANAR PERSONES
+          </button>
+
+          <table
+            *ngIf="persona?.vacunas?.length"
+            class="table table-striped mt-3"
+          >
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Tecnology</th>
+                <th scope="col">Aproval Date</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let v of persona?.vacunas">
+                <td>{{ v._id }}</td>
+                <td>{{ v.name }}</td>
+                <td>{{ v.description }}</td>
+                <td>{{ v.tecnology }}</td>
+                <td>{{ v.aprovalDate }}</td>
+                <td>
+                  <!-- <i
+                    [routerLink]="['/editar-user', user.name]"
+                    class="fa-solid fa-pen-to-square text-primary"
+                  ></i>
+                  <i
+                    (click)="deleteUser(user.name)"
+                    class="fa-solid fa-trash text-danger"
+                  ></i> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5
+            style="text-align: start; margin-top: 10px"
+            *ngIf="persona?.vacunas?.length == 0"
+          >
+            No hi ha users a la base de dades
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
