@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FaqCreateComponent } from './components/faq-create/faq-create.component';
+import { FaqListComponent } from './components/faq-list/faq-list.component';
 
 // Components
 
@@ -9,7 +11,8 @@ import { VacunaCreateComponent } from './components/vacuna-create/vacuna-create.
 
 // Routes
 const routes: Routes = [
-  { path: '', component: PersonaListComponent },
+  { path: '', component: FaqListComponent },
+  { path: 'faq-create', component: FaqCreateComponent },
 
   { path: 'editar-persona/:name', component: PersonaEditComponent },
   { path: 'crear-vacuna', component: VacunaCreateComponent },

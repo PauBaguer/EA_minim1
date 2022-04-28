@@ -1,0 +1,107 @@
+<div class="container mt-5">
+  <div class="class row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title"> {{ title | uppercase }} </span>
+          <form class="mt-3" [formGroup]="faqForm" (ngSubmit)="addFAQ()">
+            <div class="mb-3">
+              <select
+                name="userQ"
+                id="userQ"
+                formControlName="userQ"
+                class="form-control form-control-lg"
+              >
+                <option value="" disabled selected>Select a user...</option>
+                <option *ngFor="let usr of listUsers" [value]="usr._id">
+                  {{ usr.name }}
+                </option>
+              </select>
+              <div
+                class="text-danger"
+                *ngIf="
+                  faqForm.get('userQ')?.hasError('required') &&
+                  faqForm.get('userQ')?.touched
+                "
+              >
+                <span>Obligarory field</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                formControlName="question"
+                class="form-control form-control-lg"
+                placeholder="Question text"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  faqForm.get('question')?.hasError('required') &&
+                  faqForm.get('question')?.touched
+                "
+              >
+                <span>Obligarory field</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <select
+                name="userA"
+                id="userA"
+                formControlName="userA"
+                class="form-control form-control-lg"
+                placeholder="Select a user..."
+              >
+                <option value="" disabled selected>Select a user...</option>
+                <option *ngFor="let usr of listUsers" [value]="usr._id">
+                  {{ usr.name }}
+                </option>
+              </select>
+              <div
+                class="text-danger"
+                *ngIf="
+                  faqForm.get('userA')?.hasError('required') &&
+                  faqForm.get('userA')?.touched
+                "
+              >
+                <span>Obligarory field</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                formControlName="answer"
+                class="form-control form-control-lg"
+                placeholder="answer text"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  faqForm.get('answer')?.hasError('required') &&
+                  faqForm.get('answer')?.touched
+                "
+              >
+                <span>Obligarory field</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button
+                routerLink="/"
+                class="btn btn-secondary btn-lg float-start"
+              >
+                TORNAR
+              </button>
+              <button
+                type="submit"
+                [disabled]="faqForm.invalid"
+                class="btn btn-success btn-lg float-end"
+              >
+                ACCEPTAR
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

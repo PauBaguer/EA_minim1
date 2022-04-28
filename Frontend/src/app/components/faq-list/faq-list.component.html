@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">FAQ LIST</span>
+          <button class="btn btn-success float-end" routerLink="/faq-create">
+            NEW FAQ
+          </button>
+          <table *ngIf="listFaqs.length > 0" class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">UserQ</th>
+                <th scope="col">UserA</th>
+                <th scope="col">Question</th>
+                <th scope="col">answer</th>
+                <th scope="col">Date</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let faq of listFaqs">
+                <td>{{ faq._id }}</td>
+                <td>{{ faq.userQ.name }}</td>
+                <td>{{ faq.userA.name }}</td>
+                <td>{{ faq.question }}</td>
+                <td>{{ faq.answer }}</td>
+                <td>{{ faq.postingDate }}</td>
+                <td>
+                  <i
+                    (click)="deleteFAQ(faq._id!)"
+                    class="fa-solid fa-trash text-danger"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5
+            style="text-align: start; margin-top: 10px"
+            *ngIf="listFaqs.length == 0"
+          >
+            There's no FAQs in DB
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

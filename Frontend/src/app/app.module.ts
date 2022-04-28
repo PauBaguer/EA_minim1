@@ -13,9 +13,11 @@ import { ListarUsersComponent } from './components/listar-users/listar-users.com
 import { PersonaListComponent } from './components/persona-list/persona-list.component';
 import { PersonaEditComponent } from './components/persona-edit/persona-edit.component';
 import { VacunaCreateComponent } from './components/vacuna-create/vacuna-create.component';
+import { FaqListComponent } from './components/faq-list/faq-list.component';
+import { FaqCreateComponent } from './components/faq-create/faq-create.component';
 
 @NgModule({
-  declarations: [AppComponent, CrearUserComponent, ListarUsersComponent, PersonaListComponent, PersonaEditComponent, VacunaCreateComponent],
+  declarations: [AppComponent, CrearUserComponent, ListarUsersComponent, PersonaListComponent, PersonaEditComponent, VacunaCreateComponent, FaqListComponent, FaqCreateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
